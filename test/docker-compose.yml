@@ -1,0 +1,32 @@
+version: '3.3'
+
+services:
+  pact-db:
+    container_name: pact-broker-db
+    hostname: pact-broker-db
+    domainname: dev-local
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - POSTGRES_DB=pact
+      - POSTGRES_USER=pact
+      - POSTGRES_PASSWORD=pact
+    image: postgres:9.6.5
+  pact-server:
+    container_name: pact-broker
+    hostname: pact-broker
+    domainname: dev-local
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      - PACT_BROKER_DATABASE_ADAPTER=postgres
+      - PACT_BROKER_DATABASE_USERNAME=pact
+      - PACT_BROKER_DATABASE_PASSWORD=pact
+      - PACT_BROKER_DATABASE_HOST=pact-broker-db
+      - PACT_BROKER_DATABASE_NAME=pact
+    image: dius/pact-broker:2.6.0-2
+    logging:
+      driver: journald
+

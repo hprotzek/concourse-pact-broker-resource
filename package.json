@@ -1,0 +1,25 @@
+{
+  "name": "@cathive/concourse-pact-broker-resource",
+  "description": "Resource for Concourse CI to interact with a Pact Broker",
+  "version": "1.0.0",
+  "author": "The Cat Hive Developers <info@cathive.com>",
+  "maintainers": [
+    "Benjamin P. Jung <headcr4sh@gmail.com>"
+  ],
+  "devDependencies": {
+    "@types/jest": "^21.1.4",
+    "@types/semver": "^5.4.0",
+    "jest": "^21.2.1",
+    "node-fetch": "^1.7.3",
+    "semver": "^5.4.1"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "bin": {
+    "concourse-pact-broker-resource-check": "check.js",
+    "concourse-pact-broker-resource-in": "in.js",
+    "concourse-pact-broker-resource-out": "out.js"
+  },
+  "private": true
+}
