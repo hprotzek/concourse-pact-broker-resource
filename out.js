@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
 (async () => {
-  // TODO
+  process.stdout.write(`[]\n`);
 })();
